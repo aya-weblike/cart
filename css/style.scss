@@ -1,0 +1,318 @@
+/*-------------------------------------------
+変数管理
+-------------------------------------------*/
+$bg-beige: #f8f6f2;
+$bg-white: #fff;
+$bg-pink: #ffc0cb;
+$btn-hover: #ffb6c1;
+
+/*-------------------------------------------
+メディアクエリ
+-------------------------------------------*/
+$bp: 700px; // ブレイクポイント
+
+@mixin mq{
+	@media (max-width: ($bp)) {
+		@content;
+	}
+}
+
+
+/*-------------------------------------------
+共通部分
+-------------------------------------------*/
+html{
+    font-size: 100%;    
+}
+
+img{
+	width: 100%;
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    line-height: 1.7;
+}
+
+.about{
+    margin: 3rem 0;
+}
+
+.sum{
+	font-size: 1.5rem;
+	font-weight: bold;	
+}
+
+/* Layout */
+	.wrap{
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.inner{
+		max-width: 1000px;
+		width: 94%;
+		margin: 0 auto;
+	}
+
+	/* input */
+	input[type='text'],
+	input[type='email'],
+	select,
+	textarea{
+		border: 1px solid #555;
+		background-color: $bg-white;
+		padding: .5rem;
+		width: 100%;
+		text-align: center;
+	}
+
+	select{
+		appearance: auto;
+		width: 50px;
+		height: 35px;
+	}
+
+/* Heading */
+	.section-title{
+		margin-bottom: 1rem;
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
+
+/*-------------------------------------------
+HEADER
+-------------------------------------------*/
+.header{
+    margin-top: 3.75rem;
+	.logo{
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+		a{
+			display: block;
+		}
+	}
+	@include mq{
+		padding: 0 3%;
+	}
+}
+
+/*-------------------------------------------
+TABLE
+-------------------------------------------*/
+table{
+    margin: 3.5rem 0 6rem;
+    width: 100%;
+	th{
+		width: 24%;
+		vertical-align: middle;
+		@include mq{
+			background-color: $bg-beige;
+		}
+	}
+	td{
+		width: 76%;
+	}
+	th,
+	td{
+		padding: 1rem;
+		text-align: center;
+		@include mq{
+			display: block;
+			width: 100%;
+		}
+	}
+	tr:nth-child(odd){
+		background-color: $bg-beige; // PC表示ではベージュの縞模様にする
+		@include mq{
+			background-color: $bg-white; // SP表示では縞模様の色を消す
+		}
+	}
+	textarea{
+		height: 10rem;
+		text-align: start;
+	}
+}
+
+
+/*-------------------------------------------
+Button
+-------------------------------------------*/
+.link{
+    display: flex;
+    gap: .3em;
+	margin-top: 1rem;
+}
+
+.btn{
+	display: inline-block;
+	width: 20%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	font-size: 1.3rem;
+	border-radius: 10px;
+	background-color: $bg-pink;
+	&:hover{
+		background-color: $btn-hover;
+	}
+	@include mq{
+		width: 40%;
+		font-size: 1rem;
+	}
+}
+
+
+/*-------------------------------------------
+TOP PAGE
+-------------------------------------------*/
+#home{
+	.mv{
+		margin-bottom: 3.75rem;
+		img{
+			object-fit: cover;
+		}
+	}
+	.product-list{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		li{
+			width: 23%;
+			text-align: center;
+			@include mq{
+				width: 100%;
+				margin-bottom: 3rem;		
+			}
+		}
+	}
+	.pdc-name{
+		margin-top: 1rem;
+	}
+}
+
+
+/*-------------------------------------------
+ITEM PAGE
+-------------------------------------------*/
+#item-page{
+    text-align: center;
+	.inner{
+		margin-top: 3rem;
+	}	
+	.pdc-pic{
+		width: 40%;
+		margin: 0 auto;
+		@include mq{
+			width: 100%;
+		}
+	}	
+	.content{
+		margin-top: 3rem;
+	}	
+	.select-box{
+		margin-bottom: 2rem;
+		p{
+			display: inline-block; 
+		}
+	}
+}
+
+
+/*-------------------------------------------
+CART PAGE
+-------------------------------------------*/
+#cart-page{
+	tr:first-child{
+		background-color: $bg-pink;
+	}
+	input[type='text']{
+		width: 10%;
+	}
+	.cart-page-pic{
+		width: 30%;
+	}
+	.change{
+		margin-top: 1rem;
+	}
+	@include mq{
+		tr:first-child th {
+			background-color: $bg-pink;
+		}
+	}
+}
+
+
+/*-------------------------------------------
+CHANGE PAGE
+-------------------------------------------*/
+#change-page{
+	p,
+	.link{
+		margin: 1rem;
+	}
+}
+
+
+/*-------------------------------------------
+ALERT PAGE
+-------------------------------------------*/
+#alert-page{
+	margin-top: 3rem;
+	text-align: center;
+	.section-title{
+		padding: 1rem;
+	}
+	.btn{
+		margin: 1rem;
+	}
+}
+
+
+/*-------------------------------------------
+INPUT INFO PAGE
+-------------------------------------------*/
+@include mq{
+	#input-info-page td{
+		margin-bottom: 3rem;
+	}
+}
+
+
+/*-------------------------------------------
+CHECK PAGE
+-------------------------------------------*/
+#check-page{
+	h3{
+		margin-bottom: .5em;
+		text-align: center;
+		font-weight: bold;
+		font-size: 1.2rem;
+	}
+	.cart-page-pic{
+		width: 50%;
+	}
+}
+
+
+/*-------------------------------------------
+THANKS PAGE
+-------------------------------------------*/
+#thanks-page .thanks-msg{
+	margin-top: 3rem;
+    text-align: center;
+}
+
+
+/*-------------------------------------------
+FOOTER
+-------------------------------------------*/
+footer{
+    padding: 3.5rem;
+    text-align: center;
+}

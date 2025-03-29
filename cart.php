@@ -23,7 +23,7 @@
 			$num = $_SESSION['num'];
 
 			if (in_array($p_id, $id) == true) {
-				echo '<script type="text/javascript">alert("その商品はすでにカートに入っています。");</script>';
+				print '<script type="text/javascript">alert("その商品はすでにカートに入っています。");</script>';
 				$flag1 = true; //重複している場合
 			}
 		}
@@ -51,33 +51,20 @@
 	}
 ?>
 
-<!-- カートに商品が入っていないとき -->
-<?php
-	$max = count($id);
-	if ($max == 0) {
-		print "<p>カートに商品が入っていません</p>";
-		print '<p><a href="index.php">トップページへ戻る</a></p>';
-		exit();
-	} 
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>カート</title>
-		<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
-		<link rel="manifest" href="image/site.webmanifest">
+		<link rel="icon" href="image/favicon.ico">
 		<meta name="description" content="ハンドメイドアクセサリーを販売しているサイト">
 		
 		<!-- reset css -->
 		<link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
 		
 		<!-- css -->
-		<link href="css/style.css" rel="stylesheet">
+		<link href="css/style.min.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -87,7 +74,21 @@
 				<h1 class="logo"><a href="index.php">Aya Accessories Sample</a></h1>
 			</header>
 
-			<main class="cart-page">
+		<!-- カートに商品が入っていないとき -->
+			<?php
+				$max = count($id);
+				if ($max == 0) {
+				print "<div id='alert-page'>";
+				print "<section class='wrap'>";
+				print "<h2 class='section-title'>カートに商品が入っていません</h2>";
+				print "<a class='btn' href='index.php'>トップページへ戻る</a>";
+				print "</section>";
+				print "</div>";
+				exit();
+				} 
+			?>
+
+			<main id="cart-page">
 				<div class="inner">
 					<section class="about">
 						<h2 class="section-title">カートに入っている商品一覧</h2>
@@ -103,8 +104,8 @@
 							?>
 								<table>
 									<tr>
-										<th class="bg-pink">商品番号</th>
-										<td class="bg-pink"><?php print h($id[$i]); ?></td>
+										<th>商品番号</th>
+										<td><?php print h($id[$i]); ?></td>
 									</tr>
 
 									<tr>
@@ -158,10 +159,10 @@
 					</form>
 				</div>
 			</main>
-			
+
 			<!-- フッター -->
 			<footer class="inner">
-				<p><small>&copy;2024 Aya</small></p>
+				<p><small>&copy;Ayaka</small></p>
 			</footer>
 		</div>
 	</body>

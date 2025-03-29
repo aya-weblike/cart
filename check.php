@@ -73,17 +73,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>注文内容確認</title>
-		<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
-		<link rel="manifest" href="image/site.webmanifest">
+		<link rel="icon" href="image/favicon.ico">
         <meta name="description" content="ハンドメイドアクセサリーを販売しているサイト">
 
         <!-- reset css -->
         <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
 
         <!-- css -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style.min.css" rel="stylesheet">
     </head>
 
 	<body>
@@ -93,7 +90,7 @@
 				<h1 class="logo"><a href="index.php">Aya Accessories Sample</a></h1>
             </header>
 
-			<main class="check-page">
+			<main id="check-page">
 				<div class="inner">
                     <section class="about">
                         <h2 class="section-title">入力された内容は以下の通りです</h2>
@@ -182,9 +179,8 @@
 
 			<!-- フッター -->
 			<footer class="inner">
-                <p><small>&copy;2024 Aya</small></p>
+                <p><small>&copy;Ayaka</small></p>
             </footer>
 		</div>
 	</body>
-
 </html>
